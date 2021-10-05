@@ -14,12 +14,13 @@ else:
     raise SystemExit(f"Usage: {sys.argv[0]} (-c | -u | -l) <arguments>...")"""
 
 try:
-    number = float(args[0])
+    number = int(args[0])
 except ValueError:
-    raise SystemExit(f"Provide a positive real")
+    raise SystemExit(f"Provide a positive integer")
 finally:
     if len(args) > 2:
         raise SystemExit(f"Only 1 number permitted")
 
 sequencer = model.Collatz(number)
-sequencer.sequence()
+result = sequencer.sequence()
+print(f"\n\033[92m===RESULT===\n\u001b[37mInitial number: {str(result[0])}\nTrials to complete: {str(result[1])}\n\033[94m===FINISHED===\u001b[37m")

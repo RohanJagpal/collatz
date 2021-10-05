@@ -1,11 +1,11 @@
 class Collatz:
-    def __init__(self, startNum: float) -> None:
+    def __init__(self, startNum: int) -> None:
         self.startNum = startNum
     
-    def __isEven(self, num: float) -> bool:
+    def __isEven(self, num: int) -> bool:
         return num%2 == 0
 
-    def __process(self, num: float) -> int:
+    def __process(self, num: int) -> int:
         if self.__isEven(num):
             return num/2
         return (3*num)+1
@@ -20,4 +20,4 @@ class Collatz:
             print(nextNum)
             nextNum = self.__process(nextNum)
         print(1.0)
-        print(f"\n===RESULT===\nInitial number: {str(start)}\nTrials to complete: {counter}\n===FINISHED===")
+        return (start, counter)
