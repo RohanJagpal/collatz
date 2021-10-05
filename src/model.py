@@ -1,4 +1,4 @@
-class Collatts:
+class Collatz:
     def __init__(self, startNum: int) -> None:
         self.startNum = startNum
     
@@ -10,7 +10,7 @@ class Collatts:
             return num/2
         return (3*num)+1
 
-    def play(self):
+    def sequence(self):
         start = self.startNum
         print(f"\n\n{start}")
         nextNum = self.__process(start)
@@ -18,6 +18,3 @@ class Collatts:
             print(nextNum)
             nextNum = self.__process(nextNum)
         print(1)
-
-game = Collatts(float(eval(input())))
-game.play()
