@@ -1,5 +1,5 @@
 import sys
-from .model import Collatz
+import model
 
 opts = [opt for opt in sys.argv[1:] if opt.startswith("-")]
 args = [arg for arg in sys.argv[1:] if not arg.startswith("-")]
@@ -14,14 +14,12 @@ else:
     raise SystemExit(f"Usage: {sys.argv[0]} (-c | -u | -l) <arguments>...")"""
 
 try:
-    float(args[1])
+    number = float(args[0])
 except ValueError:
     raise SystemExit(f"Provide a positive real")
 finally:
     if len(args) > 2:
         raise SystemExit(f"Only 1 number permitted")
 
-number = args[1]
-
-sequencer = Collatz(number)
+sequencer = model.Collatz(number)
 sequencer.sequence()
