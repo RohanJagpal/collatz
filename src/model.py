@@ -12,9 +12,12 @@ class Collatz:
 
     def sequence(self):
         start = self.startNum
-        print(f"\n\n{start}")
+        print(f"\n\n{start}\n")
         nextNum = self.__process(start)
+        counter = 1
         while nextNum != 1:
+            counter +=1
             print(nextNum)
             nextNum = self.__process(nextNum)
-        print(1)
+        print(1.0)
+        print(f"\n===RESULT===\nInitial number: {str(start)}\nTrials to complete: {counter}\n===FINISHED===")
