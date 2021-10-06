@@ -3,9 +3,7 @@ class Collatz:
         self.startNum = startNum
 
     def __process(self, num: int) -> int:
-        if num%2==0:
-            return num/2
-        return (3*num)+1
+        return num/2 if num%2==0 else (3*num)+1
 
     def sequence(self):
         nextNum = self.__process(self.startNum)
