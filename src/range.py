@@ -1,6 +1,5 @@
 import sys
 import model
-import matplotlib.pyplot as plt
 import numpy as np
 import csv
 
@@ -25,14 +24,12 @@ finally:
     if len(args) != 2:
         raise SystemExit(f"Provide min and max")
 
-results = []
 x = []
 y = []
 
 for i in range(start, end):
     sequencer = model.Collatz(i)
     result = sequencer.sequence()
-    results += result
     x.append(result[0])
     y.append(result[1])
 
@@ -41,9 +38,3 @@ with open('results.csv', 'w+', newline='') as f:
     writer.writerow(['number', 'trials'])
     for i in range(len(x)):
         writer.writerow([x[i],y[i]])
-fig, ax = plt.subplots()
-ax.set_xlabel('number')
-ax.set_ylabel('trials')
-ax.plot(x, y)
-plt.xticks(np.arange(min(x), max(x)+1, 1.0))
-plt.show()
