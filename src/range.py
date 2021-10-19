@@ -14,17 +14,17 @@ finally:
     if len(args) != 2:
         raise SystemExit(f"Provide min and max")
 
-x = []
-y = []
+n = []
+trials = []
 
 for i in range(start, end):
     sequencer = model.Collatz(i)
     result = sequencer.sequence()
-    x.append(result[0])
-    y.append(result[1])
+    n.append(result[0])
+    trials.append(result[1])
 
 with open('results.csv', 'w+', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(['number', 'trials'])
-    for i in range(len(x)):
-        writer.writerow([x[i],y[i]])
+    for i in range(len(n)):
+        writer.writerow([n[i],trials[i]])
